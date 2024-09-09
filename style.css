@@ -1,0 +1,12 @@
+/* COLORS:
+        primary:#3bc9db
+        tints:#99e9f2, #e3fafc
+        shades:#22b8cf,#1098ad,#0c8599
+        grays:#ced4da,#868e96,#495057,#343a40
+         */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
