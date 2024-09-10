@@ -5,6 +5,16 @@ const currentWeatherIcon = document.querySelector(".weather-icon");
 const currentCondition = document.querySelector(".current-condition");
 const currentTemp = document.querySelector(".current-temp");
 const forcast = document.querySelector(".forcast");
+const  cardImg  = document.querySelector(".current-weather-img");
+const  celcius  = document.querySelector(".celcius");
+const  celcius2  = document.querySelector(".celcius2");
+const  f  = document.querySelector(".f");
+const  windValue1  = document.querySelector(".wind-value1");
+const  windValue2  = document.querySelector(".wind-value2");
+const  windDir  = document.querySelector(".wind-dir-value");
+const  name  = document.querySelector(".name-value");
+const  region  = document.querySelector(".region-value");
+const  country  = document.querySelector(".country-value");
 async function getCurrentWeather() {
     try {
         const res = await fetch(
@@ -53,6 +63,17 @@ async function getforcastWeatherData() {
         return null; // Return null or handle the error as appropriate
     }
 }
+async function getHourlyWeatherData() {
+    try {
+        const res = await fetch(
+            `http://api.weatherapi.com/v1/forecast.json?key=${KEY}&q=London&days=4&aqi=no&alerts=no`
+        );
+        return await res.json();
+    } catch (error) {
+        console.error("Error fetching weather data:", error);
+        return null; // Return null or handle the error as appropriate
+    }
+}
 
 async function viewCurrentWeather() {
     const { current, location } = await getCurrentWeather();
@@ -67,7 +88,7 @@ async function viewCurrentWeather() {
     currentCondition.textContent = current.condition.text;
     currentTemp.textContent = current.dewpoint_c + "c"
     date.textContent = 2024;
-
+    cardImg.src = icon;
     console.log(current);
     console.log("icon "+ icon  );
 
@@ -98,6 +119,17 @@ async function viewCurrentWeather() {
                   </div>`
               );
             }
+
+            celcius.textContent = current.condition.text;
+            celcius2.textContent = current.dewpoint_c;
+            f.textContent = current.dewpoint_f;
+
+            windValue1 .textContent   = current.wind_mph 
+            windValue2 .textContent   = current.wind_kph
+            windDir .textContent   = current.wind_dir
+            name .textContent    = location.name
+            region.textContent    = location.region
+            country.textContent    = location.country
             
 }
 viewCurrentWeather();
