@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
     <title>Weather application</title>
     
 
@@ -14,9 +19,9 @@
         <div class="header">
             <div class="search-container">
               <input type="text" class="search-bar" placeholder="search by city" />
-              <button class="btn btn-search">search</button>
+              <button id="search-btn"  class="btn btn-search">search</button>
             </div>
-          </div>
+          </div> 
         <div class="overview">
         <p class="date overviewDate">date</p>
         <div class="overview-content">
@@ -29,7 +34,8 @@
         <div class="forcast">
         </div>
 
-            <div class="map" id="map"></div>
+      <div class="map" id="map"></div>
+
       <div class="today-weather">
         <div class="today-weather-header">
           <p class="current-text">CURENT WEATHER</p>
@@ -89,6 +95,7 @@
 
         <link rel="stylesheet" href="style.css" />
         <script src="app.js"></script>
+    
     
 </body>
 </html>
